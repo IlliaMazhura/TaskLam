@@ -4,8 +4,48 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-</head>
-<body style="margin:0px;background-color:black;">
+    <style>
+        .layer2 {
+            position: absolute; /* Абсолютное позиционирование */
+            right: 50%; /* Положение от правого края */
+            line-height: 1px;
+        }
 
+        .layer3 {
+            position: absolute; /* Абсолютное позиционирование */
+            right: 70%; /* Положение от правого края */
+            top: 80%;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body id="cont" style="margin:0px;background-color:black;">
+    <!--background-image: url(./light.png);-->
+    <div class="layer2">
+        <img src="./lamp-off.png" id="lamp" />
+    </div>
+    <div class="layer3">
+        <img src="./off.png" id="check" onclick="triger();" />
+    </div>
+    <script>
+        var off = true;
+
+        function triger() {
+            if (off) {
+                document.getElementById('check').src = "./on.png";
+                document.getElementById('lamp').src = "./lamp.png";
+                document.getElementById('cont').style.backgroundImage = 'url("./light.png")';
+                off = false;
+            }
+            else {
+                off = true;
+                document.getElementById('check').src = "./off.png";
+                document.getElementById('lamp').src = "./lamp-off.png";
+                document.getElementById('cont').style.backgroundImage = 'none';
+            }
+
+        }
+
+    </script>
 </body>
 </html>
